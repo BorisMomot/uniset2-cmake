@@ -1,0 +1,2 @@
+add_subdirectory(cityhash102)
+add_subdirectory(murmurhash)
