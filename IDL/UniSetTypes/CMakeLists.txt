@@ -1,3 +1,4 @@
+# TODO: make configuratble size of uniset word
 set(IDL_UNISET_TYPES_LIST UniSetBaseConstants.idl UniSetManager_i.idl 
   UniSetObject_i.idl UniSetTypes_i.idl)
 

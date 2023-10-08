@@ -11,10 +11,10 @@ set(mur_sources
   ${CMAKE_CURRENT_SOURCE_DIR}/src/MurmurHash3.cpp
   )
 # message("mur sources: ${mur_sources}")
+
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${mur_sources})
 
 add_library(murmurhash ${mur_sources})
-
 target_include_directories(murmurhash 
   PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/include

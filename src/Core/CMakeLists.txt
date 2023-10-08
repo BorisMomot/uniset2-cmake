@@ -26,7 +26,7 @@ set(uniset_core_sources
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${mur_sources})
 
-add_library(uniset_core ${uniset_core_sources})
+add_library(uniset_core OBJECT ${uniset_core_sources})
 target_include_directories(uniset_core 
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include
