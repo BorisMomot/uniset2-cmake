@@ -6,20 +6,21 @@ set(CMAKE_SHARED_LINKER_FLAGS "-Wl,-fPIC")
 add_library(uniset2 
   SHARED 
     $<TARGET_OBJECTS:uniset_core>
-    # $<TARGET_OBJECTS:uniset_http>
-    # $<TARGET_OBJECTS:uniset_modbus>
-    # $<TARGET_OBJECTS:uniset_tcp>
-    # $<TARGET_OBJECTS:uniset_log>
-    # $<TARGET_OBJECTS:uniset_communications>
-    # $<TARGET_OBJECTS:uniset_obj_repo>
-    # $<TARGET_OBJECTS:uniset_processes>
-    # $<TARGET_OBJECTS:uniset_services>
-    # $<TARGET_OBJECTS:uniset_timers>
-    # $<TARGET_OBJECTS:uniset_various>
+    $<TARGET_OBJECTS:uniset_http>
+    $<TARGET_OBJECTS:uniset_modbus>
+    $<TARGET_OBJECTS:uniset_tcp>
+    $<TARGET_OBJECTS:uniset_log>
+    $<TARGET_OBJECTS:uniset_communications>
+    $<TARGET_OBJECTS:uniset_obj_repo>
+    $<TARGET_OBJECTS:uniset_processes>
+    $<TARGET_OBJECTS:uniset_services>
+    $<TARGET_OBJECTS:uniset_timers>
+    $<TARGET_OBJECTS:uniset_various>
   )
 
 target_link_libraries(uniset2
   PUBLIC
+    Poco::Net
     LibXml2::LibXml2
     omniORB4
     omnithread
