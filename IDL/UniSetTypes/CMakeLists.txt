@@ -13,3 +13,13 @@ foreach(IDL_FILE ${IDL_UNISET_TYPES_LIST})
 endforeach()
 
 source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${CPP_UNISET_TYPES_DIR})
+
+# add dependency on file generation
+add_custom_target(generate_files DEPENDS ${CPP_UNISET_TYPES_DIR}/UniSetBaseConstantsSK.cc)
+
+# build library from them
+add_library(uniset_types STATIC 
+  ${CPP_UNISET_TYPES_DIR}/UniSetBaseConstantsSK.cc
+  )
+target_include_directories(uniset_types PUBLIC ${CPP_UNISET_TYPES_DIR})
+add_dependencies(uniset_types generate_files)

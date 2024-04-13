@@ -1,3 +1,4 @@
+# add_subdirectory(Test)
 add_subdirectory(Core)
 add_subdirectory(Communications)
 add_subdirectory(Log)
@@ -6,4 +7,4 @@ add_subdirectory(Processes)
 add_subdirectory(Services)
 add_subdirectory(Timers)
 add_subdirectory(Various)
-
+#

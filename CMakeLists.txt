@@ -43,6 +43,7 @@ if (DEFINED UNISET2_SHARED_LIBS)
   set(BUILD_SHARED_LIBS ${UNISET@_SHARED_LIBS})
 endif()
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 #-----------------------------------------------------------------------------------
 # Check dependencies
 find_package(Poco REQUIRED Net JSON)
@@ -53,6 +54,8 @@ pkg_check_modules(SIGC REQUIRED sigc++-2.0)
 pkg_check_modules(EV REQUIRED libevent)
 
 find_package(LibXslt REQUIRED)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
 # TODO check IDL
 
 # Dependent libs
@@ -81,4 +84,5 @@ add_subdirectory(IDL)
 add_subdirectory(contrib)
 add_subdirectory(src)
 add_subdirectory(lib)
-add_subdirectory(Utilities)
+# add_subdirectory(Utilities)
+# add_subdirectory(extensions)
