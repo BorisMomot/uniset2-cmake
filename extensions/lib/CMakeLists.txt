@@ -13,8 +13,7 @@ set(uniset2extensions_sources
   UObject_SK.cc
   )
 
-
-source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${uniset2extensions_sources})
+# source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${uniset2extensions_sources})
 
 add_library(uniset2extensions  ${uniset2extensions_sources})
 target_include_directories(uniset2extensions 
