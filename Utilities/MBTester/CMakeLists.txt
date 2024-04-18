@@ -1,6 +1,7 @@
 add_executable(uniset2-mbrtutest mbrtutester.cc)
 target_link_libraries(uniset2-mbrtutest uniset2)
 
+# TODO verify binary names
 add_executable(uniset2-mbrtuslave-echo mbtcptester.cc)
 target_link_libraries(uniset2-mbrtuslave-echo uniset2)
 
