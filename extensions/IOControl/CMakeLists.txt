@@ -4,9 +4,8 @@ add_library(UniSet2IOControl ${uniset_io_source})
 target_include_directories(UniSet2IOControl
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include
-    # ${PROJECT_BINARY_DIR}/IDL/UniSetTypes
-    # ${PROJECT_BINARY_DIR}/IDL/Processes
     ${SIGC_INCLUDE_DIRS}
+    ${COMEDI_INCLUDE_DIRS}
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CPP_UNISET_TYPES_DIR}
@@ -16,13 +15,33 @@ target_link_libraries(UniSet2IOControl
   uniset2
   UnisetSharedMemory
   ${SIGC_LIBRARIES}
+  ${COMEDI_LIBRARIES}
   )
 
 # add binaries
-# set(smemory_source smemory.cc)
-# add_executable(uniset2-smemory ${smemory_source})
-# target_link_libraries(uniset2-smemory 
-#   UniSet2IOControl
-#   )
+add_executable(iocontrol iocontrol.cc)
+target_link_libraries(iocontrol 
+  uniset2
+  uniset2extensions
+  UnisetSharedMemory
+  UniSet2IOControl
+  )
+
+add_executable(iotest iotest.cc)
+target_link_libraries(iotest 
+  uniset2
+  uniset2extensions
+  UnisetSharedMemory
+  UniSet2IOControl
+  )
+
+add_executable(iocalibr iocalibr.cc)
+target_link_libraries(iocalibr 
+  uniset2
+  uniset2extensions
+  UnisetSharedMemory
+  UniSet2IOControl
+  )
+
 
 
