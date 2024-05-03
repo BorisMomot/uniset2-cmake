@@ -9,6 +9,12 @@ string(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_DIR}" is_top_level)
 include(cmake/utils.cmake)
 include(GNUInstallDirs)
 #-----------------------------------------------------------------------------------
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+    set(CMAKE_CUDA_COMPILER_LAUNCHER "${CCACHE_PROGRAM}") # CMake 3.9+
+endif()
+#-----------------------------------------------------------------------------------
 # Project options
 include(CMakeDependentOption)
 option(UNISET2_CHECK_LIBEV "Check for libev" ON)
@@ -89,4 +95,4 @@ add_subdirectory(contrib)
 add_subdirectory(src)
 add_subdirectory(lib)
 add_subdirectory(Utilities)
-# add_subdirectory(extensions)
+add_subdirectory(extensions)
