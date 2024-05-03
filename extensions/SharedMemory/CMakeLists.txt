@@ -6,13 +6,13 @@ target_include_directories(UnisetSharedMemory
     # ${PROJECT_BINARY_DIR}/IDL/UniSetTypes
     # ${PROJECT_BINARY_DIR}/IDL/Processes
     ${SIGC_INCLUDE_DIRS}
-  PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
+  PRIVATE
     ${CPP_UNISET_TYPES_DIR}
   )
 target_link_libraries(UnisetSharedMemory
   uniset2extensions
-  uniset_core
+  uniset2
   # Poco 
   # LibXml2::LibXml2
   ${SIGC_LIBRARIES}
