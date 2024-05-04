@@ -1,7 +1,7 @@
 add_subdirectory(lib)
 add_subdirectory(SharedMemory)
 add_subdirectory(IOControl)  
-# add_subdirectory(LogicProcessor)
+add_subdirectory(LogicProcessor)
 # add_subdirectory(ModbusMaster)
 # add_subdirectory(ModbusSlave)
 # add_subdirectory(SMViewer)

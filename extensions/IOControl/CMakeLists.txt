@@ -1,4 +1,5 @@
 # TODO build only if ENABLE_IO is activated
+# TODO add tests directory
 set(uniset_io_source ComediInterface.cc IOControl.cc)
 add_library(UniSet2IOControl ${uniset_io_source})
 target_include_directories(UniSet2IOControl
@@ -42,6 +43,3 @@ target_link_libraries(iocalibr
   UnisetSharedMemory
   UniSet2IOControl
   )
-
-
-
