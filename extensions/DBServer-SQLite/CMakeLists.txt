@@ -1,5 +1,4 @@
 # TODO build only if ENABLE_SQLITE
-# TODO add test directory
 set(uniset_sqlite_source 
   SQLiteInterface.cc 
   DBServer_SQLite.cc
