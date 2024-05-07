@@ -67,6 +67,7 @@ find_package(LibXslt REQUIRED)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 # TODO check IDL
+# TODO check xsltproc
 
 # Dependent libs
 if(UNISET2_BUILD_SQLITE)
