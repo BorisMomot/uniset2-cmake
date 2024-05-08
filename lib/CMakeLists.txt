@@ -28,6 +28,8 @@ add_library(uniset2
 #     # $<TARGET_OBJECTS:uniset_timers>
 #     # $<TARGET_OBJECTS:uniset_various>
   )
+# TODO build by 17 only if UWEBSocket is activated
+target_compile_features(uniset2 PUBLIC cxx_std_17)
 target_include_directories(uniset2 
   PUBLIC
     ${PROJECT_BINARY_DIR}/IDL/UniSetTypes/
@@ -57,6 +59,7 @@ target_link_libraries(uniset2
     )
 
 
+# TODO delete binary
 add_executable(uniset_test_bin 
   main.cpp
   )
