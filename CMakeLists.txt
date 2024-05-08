@@ -95,7 +95,6 @@ endif()
 if(UNISET2_BUILD_PYTHON)
   find_package(Python3 REQUIRED)
 endif()
-	
 
 add_subdirectory(IDL)
 add_subdirectory(contrib)
