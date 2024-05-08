@@ -1,3 +1,3 @@
 add_subdirectory(MBSlaveTest)
 add_subdirectory(MQPerfTest)
-# add_subdirectory(SMemoryTest)
+add_subdirectory(SMemoryTest)
