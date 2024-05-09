@@ -2,7 +2,7 @@
 include(FetchContent)
 FetchContent_Declare(open62541pp
   GIT_REPOSITORY https://github.com/open62541pp/open62541pp.git  
-  GIT_TAG        v0.13.0
+  GIT_TAG        v0.7.0
   )
 FetchContent_MakeAvailable(open62541pp)
 #---------------------------------------------------------------------------------------
