@@ -1,6 +1,11 @@
 # TODO add option to disable build
 
-add_library(UniSet2BackendOpenTSDB BackendOpenTSDB.cc)
+# TODO setup static or shared
+add_library(UniSet2BackendOpenTSDB SHARED BackendOpenTSDB.cc)
+set_target_properties(UniSet2BackendOpenTSDB PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_link_libraries(UniSet2BackendOpenTSDB
   uniset2
   uniset2extensions 

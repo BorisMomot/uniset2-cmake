@@ -3,7 +3,12 @@ set(uniset_mysql_source
   MySQLInterface.cc 
   DBServer_MySQL.cc
   )
-add_library(UniSet2-mysql ${uniset_mysql_source})
+# TODO: setup static or shared
+add_library(UniSet2-mysql SHARED ${uniset_mysql_source})
+set_target_properties(UniSet2-mysql PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_link_libraries(UniSet2-mysql
   uniset2extensions
   UnisetSharedMemory

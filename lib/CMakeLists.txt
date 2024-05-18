@@ -28,6 +28,10 @@ add_library(uniset2
 #     # $<TARGET_OBJECTS:uniset_timers>
 #     # $<TARGET_OBJECTS:uniset_various>
   )
+set_target_properties(uniset2 PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 # TODO build by 17 only if UWEBSocket is activated
 target_compile_features(uniset2 PUBLIC cxx_std_17)
 target_include_directories(uniset2 

@@ -6,10 +6,15 @@ FetchContent_Declare(clickhouse-cpp
   )
 FetchContent_MakeAvailable(clickhouse-cpp)
 #---------------------------------------------------------------------------------------
-add_library(UniSet2BackendClickHouse
+# TODO: setup static or shared
+add_library(UniSet2BackendClickHouse SHARED
   BackendClickHouse.cc 
   ClickHouseInterface.cc 
   ClickHouseTagsConfig.cc
+  )
+set_target_properties(UniSet2BackendClickHouse PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
   )
 target_compile_features(UniSet2BackendClickHouse PUBLIC cxx_std_17)
 target_link_libraries(UniSet2BackendClickHouse
