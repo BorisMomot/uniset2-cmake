@@ -105,3 +105,13 @@ add_subdirectory(src)
 add_subdirectory(lib)
 add_subdirectory(Utilities)
 add_subdirectory(extensions)
+
+# If top level of the project
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+  # add_subdirectory(packaging)
+  set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+  set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
+  set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MAJOR})
+  set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
+  include(CPack)
+endif()

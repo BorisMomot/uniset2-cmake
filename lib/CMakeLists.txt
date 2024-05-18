@@ -53,35 +53,25 @@ target_link_libraries(uniset2
     ${EV_PTHREADS_LIBRARIES}
     ${OMNI_LIBRARIES}
     ev
-    # omniORB4
-    # omnithread
     Poco::Net
     Poco::JSON
     LibXml2::LibXml2
     city_hash102
     murmurhash
     )
-
+  
 
 # TODO delete binary
 add_executable(uniset_test_bin 
   main.cpp
   )
-# target_include_directories(uniset_test_bin 
-#   PUBLIC 
-#     ${PROJECT_BINARY_DIR}/IDL/UniSetTypes/
-#     ${PROJECT_BINARY_DIR}/IDL/Processes/
-#     ${SIGC_INCLUDE_DIRS}
-#     ${PROJECT_SOURCE_DIR}/include
-#     )
 target_link_libraries(uniset_test_bin 
     uniset2
-    # ${SIGC_LIBRARIES}
-    # ${EV_LIBRARIES}
-    # Poco::Net
-    # LibXml2::LibXml2
-    # omniORB4
-    # omnithread
-    # city_hash102
-    # murmurhash
+  )
+
+# Add installation
+install(TARGETS uniset2 uniset_test_bin
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   )
