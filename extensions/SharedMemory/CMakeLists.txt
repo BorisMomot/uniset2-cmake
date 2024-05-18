@@ -1,5 +1,10 @@
 set(uniset_sharedmemory_source SharedMemory.cc)
-add_library(UnisetSharedMemory ${uniset_sharedmemory_source})
+# TODO setup static or shared
+add_library(UnisetSharedMemory SHARED ${uniset_sharedmemory_source})
+set_target_properties(UnisetSharedMemory PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_include_directories(UnisetSharedMemory
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include

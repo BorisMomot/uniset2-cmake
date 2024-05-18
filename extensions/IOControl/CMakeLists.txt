@@ -1,7 +1,12 @@
 # TODO build only if ENABLE_IO is activated
 # TODO add tests directory
 set(uniset_io_source ComediInterface.cc IOControl.cc)
-add_library(UniSet2IOControl ${uniset_io_source})
+# TODO: setup static or shared
+add_library(UniSet2IOControl SHARED ${uniset_io_source})
+set_target_properties(UniSet2IOControl PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_include_directories(UniSet2IOControl
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include

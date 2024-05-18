@@ -1,5 +1,10 @@
 # TODO add tests directory
-add_library(UniSet2MBSlave MBSlave.cc)
+# TODO setup shared or static
+add_library(UniSet2MBSlave SHARED MBSlave.cc)
+set_target_properties(UniSet2MBSlave PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_include_directories(UniSet2MBSlave
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include

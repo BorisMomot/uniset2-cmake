@@ -14,7 +14,12 @@ set(uniset_lprocessor
   LProcessor.cc 
   PassiveLProcessor.cc
   )
-add_library(UniSet2LProcessor ${uniset_lprocessor})
+# TODO setup shared or static
+add_library(UniSet2LProcessor SHARED ${uniset_lprocessor})
+set_target_properties(UniSet2LProcessor PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_include_directories(UniSet2LProcessor
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include

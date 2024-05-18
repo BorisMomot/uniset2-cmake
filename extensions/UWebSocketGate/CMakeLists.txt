@@ -1,5 +1,10 @@
 # TODO build only if ENABLE_UWEBSOCKETGATE
-add_library(UniSet2UWebSocketGate UWebSocketGate.cc) 
+# TODO setup share or static
+add_library(UniSet2UWebSocketGate SHARED UWebSocketGate.cc) 
+set_target_properties(UniSet2UWebSocketGate PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_compile_features(UniSet2UWebSocketGate PUBLIC cxx_std_17)
 target_link_libraries(UniSet2UWebSocketGate 
   uniset2

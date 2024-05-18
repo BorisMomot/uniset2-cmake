@@ -5,7 +5,12 @@ set(mbmaster_source
   MBConfig.cc 
   RTUStorage.cc
   )
-add_library(MBMaster ${mbmaster_source})
+# TODO setup shared or static
+add_library(MBMaster SHARED ${mbmaster_source})
+set_target_properties(MBMaster PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_include_directories(MBMaster
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include
@@ -25,7 +30,16 @@ set(mbtcpmaster_source
   MBTCPMaster.cc 
   MBTCPMultiMaster.cc
   )
-add_library(UniSet2MBTCPMaster ${mbtcpmaster_source})
+# TODO setup static or shared
+add_library(UniSet2MBTCPMaster SHARED ${mbtcpmaster_source})
+set_target_properties(UniSet2MBTCPMaster PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
+set_target_properties(UniSet2MBTCPMaster PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_link_libraries(UniSet2MBTCPMaster
   uniset2
   uniset2extensions
@@ -50,7 +64,12 @@ target_link_libraries(uniset2_mbtcpmultimaster
   UniSet2MBTCPMaster
   )
 # -------------------- Mobus RTU -------------------
-add_library(UniSet2RTU RTUExchange.cc)
+# TODO setup static or shared
+add_library(UniSet2RTU SHARED RTUExchange.cc)
+set_target_properties(UniSet2RTU PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_link_libraries(UniSet2RTU
   uniset2
   uniset2extensions

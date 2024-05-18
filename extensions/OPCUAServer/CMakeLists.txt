@@ -6,7 +6,12 @@ FetchContent_Declare(open62541pp
   )
 FetchContent_MakeAvailable(open62541pp)
 #---------------------------------------------------------------------------------------
-add_library(UniSet2OPCUAServer OPCUAServer.cc)
+# TODO setup static or shared
+add_library(UniSet2OPCUAServer SHARED OPCUAServer.cc)
+set_target_properties(UniSet2OPCUAServer PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_compile_features(UniSet2OPCUAServer PUBLIC cxx_std_17)
 target_link_libraries(UniSet2OPCUAServer
   uniset2

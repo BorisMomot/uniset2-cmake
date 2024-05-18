@@ -7,7 +7,12 @@
 #---------------------------------------------------------------------------------------
 # TODO add option to disable build
 
-add_library(UniSet2OPCUAExchange OPCUAExchange.cc OPCUAClient.cc)
+# TODO setup shared or static
+add_library(UniSet2OPCUAExchange SHARED OPCUAExchange.cc OPCUAClient.cc)
+set_target_properties(UniSet2OPCUAExchange PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_compile_features(UniSet2OPCUAExchange PUBLIC cxx_std_17)
 target_link_libraries(UniSet2OPCUAExchange
   uniset2

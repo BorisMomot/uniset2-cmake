@@ -6,7 +6,12 @@ set(uniset_unetudp_source
   UNetSender.cc 
   UNetExchange.cc
   )
-add_library(UniSet2UNetUDP ${uniset_unetudp_source})
+# TODO setup shared or static
+add_library(UniSet2UNetUDP SHARED ${uniset_unetudp_source})
+set_target_properties(UniSet2UNetUDP PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+  )
 target_link_libraries(UniSet2UNetUDP
   uniset2extensions
   UnisetSharedMemory
