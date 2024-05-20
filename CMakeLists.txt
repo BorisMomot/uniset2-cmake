@@ -37,6 +37,7 @@ option(UNISET2_BUILD_SQLITE "Build uniset with SQLite" ON)
 option(UNISET2_BUILD_TSDB "Build uniset with TSDB" ON)
 option(UNISET2_BUILD_UWEBSOCKET "Build uniset with websocket" ON)
 option(UNISET2_BUILD_PYTHON "Build uniset with python connection" ON)
+option(ENABLE_REST_API "Build REST API resolver" ON)
 cmake_dependent_option(UNISET2_BUILD_NETDATA "Build uniset with netdata" ON "UNISET2_BUILD_PYTHON" ON)
 
 option(UNISET2_BUILD_DOCS "Build uniset with docs" OFF)
@@ -108,8 +109,10 @@ add_subdirectory(extensions)
 
 # If top level of the project
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+  # TODO move to subdirectory
   # add_subdirectory(packaging)
   set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+  set(CPACK_PACKAGE_CONTACT "Pavel Vainerman"})
   set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
   set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MAJOR})
   set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
