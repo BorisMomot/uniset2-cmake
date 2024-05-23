@@ -1,4 +1,3 @@
-# TODO build only if ENABLE_IO is activated
 # TODO add tests directory
 set(mbmaster_source 
   MBExchange.cc 
@@ -90,3 +89,24 @@ add_executable(uniset2_vtconv vtconv.cc)
 target_link_libraries(uniset2_vtconv UniSet2RTU)
 add_executable(uniset2_rtustate rtustate.cc)
 target_link_libraries(uniset2_rtustate UniSet2RTU)
+
+# Add installation
+#---------------------------------------------------------------------------------------
+include(CPack)
+cpack_add_component(uniset2-extensions-common
+  DESCRIPTION "Common components for all extensions"
+  )
+install(TARGETS MBMaster UniSet2MBTCPMaster UniSet2RTU
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    COMPONENT uniset2-extensions-common
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    COMPONENT uniset2-extensions-common
+  )
+cpack_add_component(uniset2-utils
+  DESCRIPTION "Utils for uniset2"
+  )
+install(TARGETS uniset2_mbtcpmaster uniset2_mbtcpmultimaster
+uniset2_rtuexchange uniset2_mtr-conv uniset2_mtr-setup uniset2_mtr-read uniset2_vtconv uniset2_rtustate
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    COMPONENT uniset2-utils
+  )
