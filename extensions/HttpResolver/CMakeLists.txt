@@ -9,12 +9,8 @@ if(ENABLE_REST_API)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-httpresolver
-    DESCRIPTION "HTTP Resolver"
-    )
   install(TARGETS uniset2-httpresolver
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT uniset2-httpresolver
+      COMPONENT uniset2-uresolver
     )
 endif()

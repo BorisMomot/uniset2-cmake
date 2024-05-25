@@ -27,10 +27,6 @@ if(UNISET2_BUILD_SQLITE)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-sqlite
-    DESCRIPTION "Backend for sqlite DB"
-    )
   install(TARGETS UniSet2-sqlite uniset2-sqlite-dbserver
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT uniset2-sqlite

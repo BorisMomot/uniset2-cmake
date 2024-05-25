@@ -18,16 +18,12 @@ if(UNISET2_BUILD_TSDB)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-tsdb
-    DESCRIPTION "Backend for TS DB"
-    )
   install(TARGETS UniSet2BackendOpenTSDB uniset2-backend-opentsdb
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT uniset2-tsdb
+      COMPONENT uniset2-opentsdb
       LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-      COMPONENT uniset2-tsdb
+      COMPONENT uniset2-opentsdb
       ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-      COMPONENT uniset2-tsdb
+      COMPONENT uniset2-opentsdb
     )
 endif()

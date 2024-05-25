@@ -16,10 +16,6 @@ if(UNISET2_BUILD_LOGDB)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-logdb
-    DESCRIPTION "Backend for logdb"
-    )
   install(TARGETS uniset2-logdb uniset2-logdb-conv 
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT uniset2-logdb

@@ -18,10 +18,6 @@ if(UNISET2_BUILD_MQTT)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-mqtt
-    DESCRIPTION "Backend for Clickhouse DB"
-    )
   install(TARGETS UniSet2MQTTPublisher uniset2-mqttpublisher
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT uniset2-mqtt

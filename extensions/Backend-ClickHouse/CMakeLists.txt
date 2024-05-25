@@ -34,10 +34,6 @@ if(UNISET2_BUILD_CLICKHOUSE)
   target_link_libraries(clickhouse-test UniSet2BackendClickHouse)
 
   # Add installation
-  include(CPack)
-  cpack_add_component(uniset2-clickhouse
-    DESCRIPTION "Backend for Clickhouse DB"
-    )
   install(TARGETS UniSet2BackendClickHouse uniset2-backend-clickhouse uniset2-clickhouse-helper
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT uniset2-clickhouse

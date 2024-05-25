@@ -109,14 +109,7 @@ add_subdirectory(extensions)
 
 # If top level of the project
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-  # TODO move to subdirectory
+  # TODO maybe change to add_subdirectory
+  include(cmake/packaging.cmake)
   # add_subdirectory(packaging)
-  set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
-  set(CPACK_PACKAGE_CONTACT "Pavel Vainerman"})
-  set(CPACK_PACKAGE_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
-  set(CPACK_PACKAGE_VERSION_MINOR ${PROJECT_VERSION_MAJOR})
-  set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
-  set(CPACK_COMPONENTS_GROUPING ONE_PER_GROUP)
-  set(CPACK_RPM_COMPONENT_INSTALL 1)
-  include(CPack)
 endif()

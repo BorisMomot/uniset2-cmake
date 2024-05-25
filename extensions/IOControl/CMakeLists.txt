@@ -52,16 +52,12 @@ if(UNISET2_BUILD_IO)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-iocontrol
-    DESCRIPTION "Backend for Clickhouse DB"
-    )
   install(TARGETS UniSet2IOControl iocontrol iotest iocalibr
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT uniset2-iocontrol
+      COMPONENT uniset2-io
       LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-      COMPONENT uniset2-iocontrol
+      COMPONENT uniset2-io
       ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-      COMPONENT uniset2-iocontrol
+      COMPONENT uniset2-io
     )
 endif()

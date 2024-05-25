@@ -25,10 +25,6 @@ if(UNISET2_BUILD_MYSQL)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-mysql
-    DESCRIPTION "Backend for mysql DB"
-    )
   install(TARGETS UniSet2-mysql uniset2-mysql-dbserver
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT uniset2-mysql

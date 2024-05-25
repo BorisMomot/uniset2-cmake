@@ -21,14 +21,10 @@ target_link_libraries(UniSet2MBSlave
   )
 # Add executable
 add_executable(uniset2-mbslave mbslave.cc)
-target_link_libraries(uniset2_mbslave UniSet2MBSlave)
+target_link_libraries(uniset2-mbslave UniSet2MBSlave)
 
 # Add installation
 #---------------------------------------------------------------------------------------
-include(CPack)
-cpack_add_component(uniset2-extensions-common
-  DESCRIPTION "Common components for all extensions"
-  )
 install(TARGETS MBMaster UniSet2MBSlave
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     COMPONENT uniset2-extensions-common
@@ -39,3 +35,5 @@ install(TARGETS uniset2-mbslave
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     COMPONENT uniset2-utils
   )
+
+

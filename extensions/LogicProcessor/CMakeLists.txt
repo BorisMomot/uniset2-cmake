@@ -53,10 +53,6 @@ if(UNISET2_BUILD_LPROC)
 
   # Add installation
   #---------------------------------------------------------------------------------------
-  include(CPack)
-  cpack_add_component(uniset2-logicproc
-    DESCRIPTION "Logic processor"
-    )
   install(TARGETS UniSet2LProcessor logicproc plogicproc
       RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
       COMPONENT uniset2-logicproc
