@@ -8,8 +8,6 @@ set_target_properties(UnisetSharedMemory PROPERTIES
 target_include_directories(UnisetSharedMemory
   PUBLIC 
     ${PROJECT_SOURCE_DIR}/include
-    # ${PROJECT_BINARY_DIR}/IDL/UniSetTypes
-    # ${PROJECT_BINARY_DIR}/IDL/Processes
     ${SIGC_INCLUDE_DIRS}
     ${CMAKE_CURRENT_SOURCE_DIR}
   PRIVATE
@@ -18,11 +16,7 @@ target_include_directories(UnisetSharedMemory
 target_link_libraries(UnisetSharedMemory
   uniset2extensions
   uniset2
-  # Poco 
-  # LibXml2::LibXml2
   ${SIGC_LIBRARIES}
-  # city_hash102
-  # murmurhash
   )
 
 
@@ -33,3 +27,14 @@ target_link_libraries(uniset2-smemory
   # poco 
   )
 
+
+# Add installation
+#---------------------------------------------------------------------------------------
+install(TARGETS UnisetSharedMemory uniset2-smemory
+      RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+      COMPONENT uniset2-extensions-common
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      COMPONENT uniset2-extensions-common
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      COMPONENT uniset2-extensions-common
+    )

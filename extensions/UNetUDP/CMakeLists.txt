@@ -25,3 +25,15 @@ target_link_libraries(uniset2-unet-udp-tester UniSet2UNetUDP)
 
 add_executable(uniset2-unet-multicast-tester UDPPacket.cc MulticastTransport.cc unet-multicast-tester.cc)
 target_link_libraries(uniset2-unet-multicast-tester UniSet2UNetUDP)
+
+# Add installation
+#---------------------------------------------------------------------------------------
+install(TARGETS UniSet2UNetUDP uniset2-unetexchange uniset2-unet-udp-tester uniset2-unet-multicast-tester 
+      RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+      COMPONENT uniset2-extensions-common
+      LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      COMPONENT uniset2-extensions-common
+      ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+      COMPONENT uniset2-extensions-common
+    )
+endif()
